@@ -1,0 +1,19 @@
+Web Programming
+
+HTTP Server, HTTP Client
+- 웹문서의 기본 포멧인 HTML 파일을 공유하기 위한 서버와 클라이언트
+- HTTP Client의 Request가 HTTP Server에 전달되면,
+- HTTP Server는 Response를 생성하여 HTTP Client에 전달한다.
+
+Web Server (정적 컨텐츠)
+- appache
+- EnginX
+
+Web Application Server(WAS) : 동적 컨텐츠
+- Tomcat : Java Web Application 실행 가능
+- 웹브라우저(Web Client) 요청에 따라 웹서버측의 웹애플리케이션 실행 후 결과를 응답
+- 웹클라이언트와 웹서버는 HTTP 프로토콜에 의해 해석됨
+
+개발방법론
+- Model 1 : JSP + Java (소규모)
+- Model 2 : Servelet + JSP + Java(대규모), MVC 디자인 패턴
