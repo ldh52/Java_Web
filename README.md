@@ -6,5 +6,6 @@
 └ src/main/java/com/test/sku/Gugu.java <br />
 └ src/main/java/com/test/sku/HelloServlet.java <br />
 └ src/main/java/com/test/sku/servlet/GuguServlet.java <br />
-2. jsp : <src - webapp - jsp> hello.jsp, gugu.jsp
-
+2. jsp <br />
+└ src/main/webapp/jsp/gugu.jsp
+└ src/main/webapp/jsp/hello.jsp
