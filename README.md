@@ -6,9 +6,17 @@
 └ src/main/java/com/test/sku/Gugu.java <br />
 └ src/main/java/com/test/sku/HelloServlet.java <br />
 └ src/main/java/com/test/sku/servlet/GuguServlet.java <br />
+└ src/main/java/com/test/sku/UserServlet.java <br />
+└ src/main/java/com/test/sku/User.java <br />
+└ src/main/java/com/test/sku/UserDAO.java <br />
+
 2. jsp <br />
 └ src/main/webapp/jsp/gugu.jsp  <br />
 └ src/main/webapp/jsp/hello.jsp <br />
+└ src/main/webapp/jsp/loginForm.jsp <br />
+└ src/main/webapp/jsp/loginResult.jsp <br />
+└ src/main/webapp/jsp/UserDetail.jsp <br />
+
 # Servlet CRUD
 - Create : html 폼 - > Servlet -> DAO ->users 저장 <br />
 - Read : html에서 요청 -> Servlet -> DAO -> users <br />
