@@ -8,4 +8,9 @@
 └ src/main/java/com/test/sku/servlet/GuguServlet.java <br />
 2. jsp <br />
 └ src/main/webapp/jsp/gugu.jsp  <br />
-└ src/main/webapp/jsp/hello.jsp
+└ src/main/webapp/jsp/hello.jsp <br />
+# Servlet CRUD
+- Create : html 폼 - > Servlet -> DAO ->users 저장 <br />
+- Read : html에서 요청 -> Servlet -> DAO -> users <br />
+- Update : html 폼 -> 새 데이터 입력 -> Servlet -> DAO -> 수정 <br />
+- Delete : html에서 삭제 요청 -> Servlet -> DAO -> 삭제 <br />
