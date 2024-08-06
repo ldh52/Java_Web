@@ -17,5 +17,5 @@
 //<br />
 <a href="user?cmd=detail&uid=smith">smith</a><br />
 <%= u.getUid() %><br />
-<a href="user?cmd=detail&uid=<%= u.getUid() %>"><%= u.getUid() %></a>
+<a href="user?cmd=detail&uid=<%= u.getUid() %>"><%= u.getUid() %></a><br />
 //
