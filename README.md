@@ -13,4 +13,5 @@
 - Create : html 폼 - > Servlet -> DAO ->users 저장 <br />
 - Read : html에서 요청 -> Servlet -> DAO -> users <br />
 - Update : html 폼 -> 새 데이터 입력 -> Servlet -> DAO -> 수정 <br />
-- Delete : html에서 삭제 요청 -> Servlet -> DAO -> 삭제 <br />
+- Delete : html에서 삭제 요청 -> Servlet -> DAO -> 삭제 <br /><br />
+<a href="user?cmd=detail&uid=smith">smith</a>
