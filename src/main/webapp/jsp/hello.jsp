@@ -2,9 +2,10 @@
 <%@page import="com.test.sku.Gugu"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="g" class=com.test.sku.Gugu/>
+<jsp:useBean id ="g" class="com.test.sku.Gugu"/>
+
 <%
-	List<String> list = g.getGugu(request);
+   List<String> list = g.getGugu(request);
 %>
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,7 @@
 <p>
 <% // Scriptlet
    for(int i=1;i<list.size();i++) { %>
-   <%=list.get(i)%>
+      <%=list.get(i)%>
       <br>
 <%   }
 %>
