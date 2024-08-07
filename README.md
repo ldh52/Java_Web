@@ -33,5 +33,6 @@
 2. 저장 버튼을 누루면 > 해당 이용자의 암호가 서버에서 변경됨<br />
 3. 성공/실패 메시지(jsp 없이 수정폼에 성공/실패 메시지 표시)<br /><br /><br />
 
-jQuery download / ctrl cv<br>
-jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified
+# jQuery <br />
+jQuery download <br />
+[ctrl+cv] jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br />
