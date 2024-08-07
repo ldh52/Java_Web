@@ -16,6 +16,7 @@
 └ src/main/webapp/jsp/loginForm.jsp <br />
 └ src/main/webapp/jsp/loginResult.jsp <br />
 └ src/main/webapp/jsp/UserDetail.jsp <br />
+└ src/main/webapp/jsp/editPwd.jsp <br />
 
 # Servlet CRUD
 - Create : html 폼 - > Servlet -> DAO ->users 저장 <br />
