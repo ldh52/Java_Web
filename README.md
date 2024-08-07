@@ -1,10 +1,12 @@
 # Java_Web
 1. tomcat download <br />
 2. 이클립스와 톰캣 연동 : <Window - Show View - Servers> --> 하단 Tomcat Server 클릭 --> 톰캣 포트번호를 8080에서 80으로 변경 --> Start<br />
-# *.java, *.jsp <br />
-이클립스에서 JSP 실행을 위해 JAR 파일을 빌드 경로에 추가하는 방법<br />
-* JAR 파일 복사: JAR 파일을 웹 애플리케이션의 WEB-INF/lib 폴더에 직접 붙여넣기<br />
 
+# JAR 파일 빌드 경로에 추가하기
+이클립스에서 JSP 실행을 위해 JAR 파일을<br />
+웹 애플리케이션의 WEB-INF/lib 폴더에 붙여넣기<br />
+
+# *.java, *.jsp <br />
 1. java <br />
 └ src/main/java/com/test/sku/HelloServlet.java <br />
 └ src/main/java/com/test/sku/Gugu.java <br />
