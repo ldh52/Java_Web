@@ -35,4 +35,6 @@
 
 # jQuery <br />
 jQuery download <br />
-[ctrl+cv] jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br />
+jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br />
+[ctrl+cv] <br />
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
