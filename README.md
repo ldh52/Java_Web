@@ -22,7 +22,7 @@
 - Read : html에서 요청 -> Servlet -> DAO -> users <br />
 - Update : html 폼 -> 새 데이터 입력 -> Servlet -> DAO -> 수정 <br />
 - Delete : html에서 삭제 요청 -> Servlet -> DAO -> 삭제 <br /><br />
-//<br />
+// 내용은 소스코드에서 확인<br />
 <a href="user?cmd=detail&uid=smith">smith</a><br />
 <%= u.getUid() %><br />
 <a href="user?cmd=detail&uid=<%= u.getUid() %>"><%= u.getUid() %></a><br />
