@@ -29,7 +29,6 @@
 		obj.uid = uid;
 		obj.pwd = pwd;
 
-
         $.ajax({
             url: 'user',
             method: 'post',
@@ -46,7 +45,6 @@
                 alert('에러: ' + err);
             }
         });
-
         return false;
     }
 </script>
