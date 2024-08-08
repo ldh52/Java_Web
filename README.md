@@ -29,7 +29,7 @@ jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br />
 이용자 정보 입력 기능<br />
 1. [이용자 정보 추가] > 입력 폼 > [저장] > 성공/실패 > 상세정보 표시<br />
 2. 목록보기 화면에 버튼 추가  > userinput.jsp > AJAX 요청 > 성공/실패 > userDetail.jsp<br />
-3. cmd=addForm, cmd=add (dao.add(user)),cmd=detail<br />
+3. cmd=addForm, cmd=add (dao.add(user)), cmd=detail<br />
 <br /> 
 Service 레이어 도입 (UserService 클래스)<br />
 로그인 이용자만 데이터 변경 가능하게<br />
