@@ -15,16 +15,16 @@
 #### 수정 > 암호수정용 폼(아이디는 뜨고, 암호는 비워둠) > 새 암호 입력 > 저장 > DB저장<br />
 1. 수정 버튼 생성 > 누르면 > 수정폼(editPwd.jsp) 출력<br />
 2. 저장 버튼을 누루면 > 해당 이용자의 암호가 서버에서 변경됨<br />
-3. 성공/실패 메시지(jsp 없이 수정폼에 성공/실패 메시지 표시)<br /><br /><br />
+3. 성공/실패 메시지(jsp 없이 수정폼에 성공/실패 메시지 표시)<br />
 
 # jQuery
 #### jQuery download <br />
-jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br /><br />
+jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br />
 
 #### jsp 파일에 jQuery 추가하기
 *ctrl+cv <br />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<br /><br />
+<br />
 
 이용자 정보 입력 기능<br />
 Service 레이어 도입 (UserService 클래스)<br />
