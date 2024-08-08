@@ -41,52 +41,51 @@ public class UserService
 		} 
 		
 		else if (cmd.equals("list")) {
-            UserDAO dao = new UserDAO();
-            List<User> userList = dao.getList();
-            request.setAttribute("list", userList);
-            viewPath = "/jsp/userList.jsp";
+	            UserDAO dao = new UserDAO();
+	            List<User> userList = dao.getList();
+	            request.setAttribute("list", userList);
+	            viewPath = "/jsp/userList.jsp";
         } 
 		
 		else if (cmd.equals("detail")) {
-            UserDAO dao = new UserDAO();
-            String uid = request.getParameter("uid");
-            User userDetail = dao.getUserDetailList(uid);
-            request.setAttribute("detail", userDetail);
-            viewPath = "/jsp/userDetailList.jsp";
+			UserDAO dao = new UserDAO();
+		        String uid = request.getParameter("uid");
+		        User userDetail = dao.getUserDetailList(uid);
+		        request.setAttribute("detail", userDetail);
+		        viewPath = "/jsp/userDetailList.jsp";
         }
 				
 		else if(cmd.equals("edit")) {
-	         String uid = request.getParameter("uid");
-	         request.setAttribute("uid", uid);
-	         viewPath = "/jsp/editPwd.jsp";
+			String uid = request.getParameter("uid");
+		        request.setAttribute("uid", uid);
+		        viewPath = "/jsp/editPwd.jsp";
 	    } else if(cmd.equals("updatePwd")) {
-	         String uid = request.getParameter("uid");
-	         String newPwd = request.getParameter("pwd");
-	         UserDAO dao = new UserDAO();
-	         boolean updated = dao.updatePwd(new User(uid, newPwd));
-	         sendJSON("updated", updated+"");
+		        String uid = request.getParameter("uid");
+		        String newPwd = request.getParameter("pwd");
+		        UserDAO dao = new UserDAO();
+		        boolean updated = dao.updatePwd(new User(uid, newPwd));
+		        sendJSON("updated", updated+"");
 	    }
 
         else if (cmd.equals("delete")) {
-	         String uid = request.getParameter("uid");
-	         UserDAO dao = new UserDAO();
-	         boolean deleted = dao.deleteUser(uid);
-	         
-	         sendJSON("deleted", deleted+"");
+		        String uid = request.getParameter("uid");
+		        UserDAO dao = new UserDAO();
+		        boolean deleted = dao.deleteUser(uid);
+		        sendJSON("deleted", deleted+"");
 	    }
 		
         else if (cmd.equals("addForm")) { 
-        	viewPath = "/jsp/userinput.jsp";
+		viewPath = "/jsp/userinput.jsp";
         } 
         else if(cmd.equals("add")) 
         {
         	System.out.println("추가 시작");
-        	 String uid = request.getParameter("uid");
-             String pwd = request.getParameter("pwd");
-             User user = new User(uid, pwd);
-             UserDAO dao = new UserDAO();
-             boolean added = dao.add(user);
-             sendJSON("added", added+"");
+        	String uid = request.getParameter("uid");
+                String pwd = request.getParameter("pwd");
+                User user = new User(uid, pwd);
+                UserDAO dao = new UserDAO();
+                boolean added = dao.add(user);
+                sendJSON("added", added+"");
         }
 		
 		return viewPath;
