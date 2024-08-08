@@ -12,111 +12,150 @@ import java.util.Map;
 
 public class UserDAO 
 {
-   private Connection conn;
-   private PreparedStatement pstmt;
-   private ResultSet rs;
-   
-   private Connection getConn() 
-   {
-      try {
-         Class.forName("oracle.jdbc.OracleDriver");
-         conn = DriverManager.getConnection(
-                   "jdbc:oracle:thin:@localhost:1521:xe", "SCOTT", "TIGER");
-         return conn;
-      }catch(Exception e) {
-         e.printStackTrace();
-      }
-      return null;
-   }
-   
-   public boolean login(User user) {
-      String sql = "SELECT * FROM users WHERE userid=? AND userpwd=?";
-      conn = getConn();
-      try {
-         pstmt = conn.prepareStatement(sql);
-         pstmt.setString(1, user.getUid());
-         pstmt.setString(2,  user.getPwd());
-         rs = pstmt.executeQuery();
-         if(rs.next()) {
-            return true;
-         }
-      }catch(SQLException sqle) {
-         sqle.printStackTrace();
-      }finally {
-         closeAll();
-      }
-      return false;
-   }
-   
-   public List<User> getList()
-   {
-      String sql = "SELECT * FROM users";
-      conn = getConn();
-      try {
-         pstmt = conn.prepareStatement(sql);
-         rs = pstmt.executeQuery();
-         List<User> list = new ArrayList<>();
-         while(rs.next()) {
-            String userid = rs.getString("USERID");
-            String userpwd = rs.getString("USERPWD");
-            list.add(new User(userid, userpwd));
-         }
-         return list;
-      }catch(SQLException sqle) {
-         sqle.printStackTrace();
-      }finally {
-         closeAll();
-      }
-      return null;
-   }
-   
-
-   public User getDetail(String uid) {
-      String sql = "SELECT * FROM users WHERE userid=?";
-      conn = getConn();
-      try {
-         pstmt = conn.prepareStatement(sql);
-         pstmt.setString(1, uid);
-         rs = pstmt.executeQuery();
-         
-         if(rs.next()) {
-            String userid = rs.getString("USERID");
-            String userpwd = rs.getString("USERPWD");
-            return new User(userid, userpwd);
-         }
-      }catch(SQLException sqle) {
-         sqle.printStackTrace();
-      }finally {
-         closeAll();
-      }
-      return null;
-   }
-   
-   public boolean updatePwd(User user) {
-      String sql = "UPDATE users SET userpwd=? WHERE userid=?";
-      conn = getConn();
-      try {
-         pstmt = conn.prepareStatement(sql);
-         pstmt.setString(1, user.getPwd());
-         pstmt.setString(2, user.getUid());
-         int rows = pstmt.executeUpdate();
-         
-         return rows>0;
-      }catch(SQLException sqle) {
-         sqle.printStackTrace();
-      }finally {
-         closeAll();
-      }
-      return false;
-   }
-   
-   private void closeAll() {
-      try {
-         if(rs!=null) rs.close();
-         if(pstmt!=null) pstmt.close();
-         if(conn!=null) conn.close();
-      }catch(Exception e) {
-         e.printStackTrace();
-      }
-   }
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private Connection getConn() 
+	{
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			conn = DriverManager.getConnection(
+	                "jdbc:oracle:thin:@localhost:1521:xe", "SCOTT", "TIGER");
+			return conn;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public boolean login(User user)
+	{
+		String sql = "SELECT * FROM users WHERE userid=? AND userpwd=?";
+		conn = getConn();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user.getUid());
+			pstmt.setString(2, user.getPwd());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch(SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return false;
+	}
+	
+	public List<User> getList() {
+		conn = getConn();
+		try {
+			pstmt = conn.prepareStatement("SELECT * FROM users");
+			rs = pstmt.executeQuery();
+			List<User> list = new ArrayList<>();
+			while(rs.next())
+			{
+				String userid = rs.getString("USERID");
+				String userpwd = rs.getString("USERPWD");
+				
+				User user = new User();
+				user.setUid(userid);
+				user.setPwd(userpwd);
+				list.add(user);
+			}
+			return list;
+		} catch(SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return null;
+	}
+	
+	public User getUserDetailList(String uid)
+	{
+		User user = null;
+		conn = getConn();
+		try {
+			pstmt = conn.prepareStatement("SELECT userid, userpwd FROM users WHERE userid = ?");
+			pstmt.setString(1, uid);
+			rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				uid = rs.getString("USERID");
+				String userpwd = rs.getString("USERPWD");
+				
+				user = new User();
+				user.setUid(uid);
+				user.setPwd(userpwd);
+			}
+			return user;
+		} catch(SQLException sqle) {
+			sqle.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return null;
+	}
+	
+	public boolean updatePwd(User user) {
+	    conn = getConn();
+	    try {
+	        pstmt = conn.prepareStatement("UPDATE users SET userpwd = ? WHERE userid = ?");
+	        pstmt.setString(1, user.getPwd());
+	        pstmt.setString(2, user.getUid());
+	        int rowsUpdated = pstmt.executeUpdate();
+	        return rowsUpdated > 0; 
+	    } catch (SQLException sqle) {
+	        sqle.printStackTrace();
+	        return false;
+	    } finally {
+	        closeAll();
+	    }
+	}
+	
+	public boolean deleteUser(String uid)
+	{
+		conn = getConn();
+		try {
+            pstmt = conn.prepareStatement("DELETE FROM users WHERE userid = ?");
+            pstmt.setString(1, uid);
+            int rowsDeleted = pstmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace(); 
+            return false;
+        } finally {
+            closeAll();
+        }
+	}
+	
+	public boolean add(User user) {
+        conn = getConn();
+        String sql = "INSERT INTO users (userid, userpwd) VALUES (?, ?)";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, user.getUid());
+            pstmt.setString(2, user.getPwd()); 
+            int rowsInserted = pstmt.executeUpdate();
+            return rowsInserted > 0;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace(); 
+            return false;
+        } finally {
+            closeAll();
+        }
+    }
+	
+	private void closeAll() {
+		try {
+			if(rs!=null) rs.close();
+			if(pstmt!=null) pstmt.close();
+			if(conn!=null) conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
