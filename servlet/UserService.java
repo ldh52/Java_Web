@@ -41,7 +41,7 @@ public class UserService
          
          //로그인 통과한 이용자는 어떤 페이지로 이동하든지 로그인 여부를 확인할 수 있도록
          //영역 오브젝트에 로그인 성공 사실을 기억해놓는다
-         if(오케이) {
+         if(ok) {
             request.getSession().setAttribute("uid", uid);
          }
          //이용자에게 로그인 성공/실패 여부를 전달한다
