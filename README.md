@@ -27,7 +27,7 @@ jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br /><br />
 <br /><br />
 
 이용자 정보 입력 기능<br />
-Service 레이어 도입<br />
+Service 레이어 도입 (UserService 클래스)<br />
 로그인 이용자만 데이터 변경 가능하게<br />
 
 Pet 관리 시스템 종합 실습<br />
