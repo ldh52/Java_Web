@@ -24,7 +24,7 @@ jQuery CDN > https://releases.jquery.com > jQuery 3.x >  minified <br />
 #### jsp 파일에 jQuery 추가하기
 *ctrl+cv <br />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<br />
+<br /><br />
 
 이용자 정보 입력 기능<br />
 Service 레이어 도입 (UserService 클래스)<br />
