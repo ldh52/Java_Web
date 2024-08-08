@@ -48,6 +48,6 @@ Pet 관리 시스템 종합 실습<br />
 2. obj.getAttribute("key"); // 영역 오브젝트에 저장된 key를 사용하여 value를 구한다<br />
 
 #### json simple jar 다운로드 / 추가
-JSON.simple » 1.1.1 > bundle<br />
+json-simple-1.1.1.jar<br />
 JAR 파일을<br />
 웹 애플리케이션의 WEB-INF/lib 폴더에 붙여넣기<br />
