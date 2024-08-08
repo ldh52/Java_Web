@@ -36,7 +36,7 @@ Service 레이어 도입 (UserService 클래스)<br />
 
 Pet 관리 시스템 종합 실습<br />
 <br />
-#### Java Web Scope(영역 오브젝트)<br />
+#### Java Web Scope(영역 오브젝트)
 1. 이용자가 속하게 되는 논리적인 영역<br />
 2. page 영역: 한 페이지(서블릿) 안의 영역<br />
 3. request 영역: 이용자가 다른 jsp, servlet으로 forward될 때 원래 요청된 페이지와 forward된 페이지<br />
@@ -47,7 +47,7 @@ Pet 관리 시스템 종합 실습<br />
 1. obj.setAttribute("key", "value"); // 영역 오브젝트에 key, value를 저장<br />
 2. obj.getAttribute("key"); // 영역 오브젝트에 저장된 key를 사용하여 value를 구한다<br />
 
-#### json simple jar<br />
+#### json simple jar 다운로드 / 추가
 JSON.simple » 1.1.1 > bundle<br />
 JAR 파일을<br />
 웹 애플리케이션의 WEB-INF/lib 폴더에 붙여넣기<br />
