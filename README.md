@@ -35,3 +35,17 @@ Service 레이어 도입 (UserService 클래스)<br />
 로그인 이용자만 데이터 변경 가능하게<br />
 
 Pet 관리 시스템 종합 실습<br />
+<br />
+Java Web Scope(영역 오브젝트)<br />
+1. 이용자가 속하게 되는 논리적인 영역<br />
+2. page 영역: 한 페이지(서블릿) 안의 영역<br />
+3. request 영역: 이용자가 다른 jsp, servlet으로 forward될 때 원래 요청된 페이지와 forward된 페이지<br />
+4. session 영역: 이용자가 지나가는 모든 jsp, servlet<br />
+5. application 영역: 한 사이트에 있는 모든 jsp, servlet<br />
+<br />
+영역 오브젝트의 공통 메소드<br />
+1. obj.setAttribute("key", "value"); // 영역 오브젝트에 key, value를 저장<br />
+2. obj.getAttribute("key"); // 영역 오브젝트에 저장된 key를 사용하여 value를 구한다<br />
+
+
+
