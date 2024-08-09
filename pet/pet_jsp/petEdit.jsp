@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.test.sku.pet.PetVO" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>펫 정보 수정</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <%-- jQuery 추가 --%>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         /* 기본 스타일 */
         body {
@@ -56,12 +57,16 @@
                     processData: false,
                     contentType: false,
                     success: function(response) {
-                        // JSON 응답 처리
-                        if (response.success) {
-                            alert(response.message); 
-                            location.href = "${pageContext.request.contextPath}/pet?action=list";
-                        } else {
-                            alert(response.message); 
+                    	try {
+                            var parsedResponse = JSON.parse(response); 
+                            if (parsedResponse.success) {
+                                alert(parsedResponse.message);
+                                location.href = "${pageContext.request.contextPath}/pet?action=list";
+                            } else {
+                                alert(parsedResponse.message);
+                            }
+                        } catch (e) {
+                            alert("서버 응답 파싱 오류: " + e.message);
                         }
                     },
                     error: function(xhr, status, error) {
@@ -82,10 +87,41 @@ if (pet != null) {
     String birthDateString = new SimpleDateFormat("yyyy-MM-dd").format(pet.getBirth());
 %>
 
-<form id="petEditForm" action="<%= request.getContextPath() %>/pet?action=update" method="post" enctype="multipart/form-data"> <%-- 폼 ID 추가 --%>
+<form id="petEditForm" action="<%= request.getContextPath() %>/pet?action=update" method="post" enctype="multipart/form-data">
     <input type="hidden" name="no" value="<%= pet.getNo() %>">
     <table>
-        </table>
+        <tr>
+            <td>이름:</td>
+            <td><%= pet.getName() %></td>
+        </tr>
+        <tr>
+            <td>원산지:</td>
+            <td><%= pet.getOrigin() %></td>
+        </tr>
+        <tr>
+            <td>몸무게(kg):</td>
+            <td><input type="number" name="weight" min="0.1" step="0.1" value="<%= pet.getWeight() %>" required></td> 
+        </tr>
+        <tr>
+            <td>생년월일:</td>
+            <td><%= birthDateString %></td> 
+        </tr>
+        <tr>
+            <td>가격:</td>
+            <td><input type="number" name="price" min="1000" step="1000" value="<%= pet.getPrice() %>" required></td> 
+        </tr>
+        <tr>
+            <td>사진:</td>
+            <td><img src="<%= request.getContextPath() %>/img/pet/<%= pet.getPic() %>" alt="<%= pet.getName() %> 사진" width="100">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button type="submit">수정</button>
+                <button type="button" onclick="location.href='<%= request.getContextPath() %>/pet?action=list'">목록</button>
+            </td>
+        </tr>
+    </table>
 </form>
 
 <% 

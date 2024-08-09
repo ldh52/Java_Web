@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>펫 정보 입력</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <%-- jQuery 추가 --%>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         /* 기본 스타일 (필요에 따라 추가/수정) */
         body {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.test.sku.pet.PetVO" %> <%-- PetVO import 추가 --%>
-<%@ page import="java.text.SimpleDateFormat" %> <%-- SimpleDateFormat import 추가 --%>
+<%@ page import="com.test.sku.pet.PetVO" %>
+<%@ page import="java.text.SimpleDateFormat" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,13 +29,14 @@
     }
 
     th, td {
-        padding: 10px;
+        padding: 15px;
         border: 1px solid #ccc;
         text-align: left;
     }
 
     th {
         background-color: #f0f0f0;
+        text-align: center;
     }
 
     img {
@@ -54,31 +56,31 @@ if(pet != null) { // pet 객체가 null인지 확인
 %>
 <table>
     <tr>
-        <td>번호:</td>
+        <th>번호</th>
         <td><%= pet.getNo() %></td> 
     </tr>
     <tr>
-        <td>사진:</td>
+        <th>사진</th>
         <td><img src="<%= request.getContextPath() %>/img/pet/<%= pet.getPic() %>" alt="<%= pet.getName() %> 사진"></td> 
     </tr>
     <tr>
-        <td>이름:</td>
+        <th>이름</th>
         <td><%= pet.getName() %></td> 
     </tr>
     <tr>
-        <td>원산지:</td>
+        <th>원산지</th>
         <td><%= pet.getOrigin() %></td> 
     </tr>
     <tr>
-        <td>몸무게(kg):</td>
+        <th>몸무게(kg)</th>
         <td><%= pet.getWeight() %></td> 
     </tr>
     <tr>
-        <td>생년월일:</td>
+        <th>생년월일</th>
         <td><%= new SimpleDateFormat("yyyy-MM-dd").format(pet.getBirth()) %></td> 
     </tr>
     <tr>
-        <td>가격:</td>
+        <th>가격</th>
         <td><%= String.format("%,d", pet.getPrice()) %>원</td> 
     </tr>
 </table>
@@ -90,7 +92,22 @@ if(pet != null) { // pet 객체가 null인지 확인
 }
 %>
 
-<button type="button" onclick="location.href='<%= request.getContextPath() %>/pet?action=list'">목록으로 돌아가기</button> <%-- 스크립트릿으로 변경 --%>
+<div>
+<center>
+<button type="button" onclick="location.href='<%= request.getContextPath() %>/pet?action=list'">목록으로 돌아가기</button>
+
+<form action="${pageContext.request.contextPath}/pet?action=edit&no=<%= pet.getNo() %>" method="post" style="display: inline;">
+<input type="hidden" name="no" value="<%= pet.getNo() %>">
+<button type="button" onclick="location.href='<%= request.getContextPath() %>/pet?action=edit&no=<%= pet.getNo() %>'">수정</a></button>
+</form>
+
+<form action="${pageContext.request.contextPath}/pet?action=delete" method="post" style="display: inline;">
+<input type="hidden" name="no" value="<%= pet.getNo() %>">
+<button type="submit" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</button>
+</form>
+
+</center>
+</div> 
 
 </body>
 </html>

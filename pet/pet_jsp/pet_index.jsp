@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>펫 판매점</title>
-    <style>
+    <style type="text/css">
         /* 기본 스타일 */
         body {
             font-family: sans-serif;
