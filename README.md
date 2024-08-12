@@ -69,12 +69,3 @@ Pet 판매점 사이트를 가정한 웹사이트 제작<br />
     11. webapp/pet : 필요한 모든 jsp 파일 저장<br />
     12. webapp/img/pet : 모든 이미지 파일 저장<br />
     13. 기능 구현 : 추가, 목록, 검색, 수정, 삭제<br />
-
-# HTML Tags
-EL/JSTL<br />
-Thymeleaf<br />
-JSP개발방법론 Model1<Servlet 제외, JSP와 Java만으로 사이트 제작)<br />
--JSP 중심 개발
-<br />
-- <JSP:useBean> 사용하여 자바 객체 생성<br />
-- Model 1을 사용한 게시판 프로젝트<br />
